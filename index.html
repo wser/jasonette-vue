@@ -1,77 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jasonette-vue-pettite</title>
-  </head>
-  <body>
-    <script type="module">
-      import { createApp } from 'https://unpkg.com/petite-vue?module';
+<html>
+<div id="app">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+/*************************************
 
-      createApp({
-        // exposed to all expressions
-        count: 0,
-        // getters
-        get plusOne() {
-          return this.count + 1;
-        },
-        // methods
-        increment() {
-          this.count++;
-        },
-      }).mount();
-    </script>
+  With Jasonette agents,
+  you can even bring your existing
+  web app and just let it trigger
+  Jasonette core using $agent.
+  Here, we've just taken an existing
+  Vue.js sample app and added
+  $agent.response() lines, so that
+  they can talk to Jasonette when
+  they need to.
 
-    <!-- v-scope value can be omitted -->
-    <div v-scope>
-      <p>{{ count }}</p>
-      <p>{{ plusOne }}</p>
-      <button @click="increment">increment</button>
-    </div>
-    
-    <div id="app">
-      <p>{{ message }}</p>
-      <button @click="reverseMessage">Reverse Message</button>
-    </div>
-    
-    <script>
-    /*************************************
+  First try opening this in your
+  browser. It should work, since
+  it's just a web app.
 
-      With Jasonette agents,
-      you can even bring your existing
-      web app and just let it trigger
-      Jasonette core using $agent.
-      Here, we've just taken an existing
-      Vue.js sample app and added
-      $agent.response() lines, so that
-      they can talk to Jasonette when
-      they need to.
+  Then, try plugging this into Jasonette
+  as an agent under $jason.head.agents.
 
-      First try opening this in your
-      browser. It should work, since
-      it's just a web app.
-
-      Then, try plugging this into Jasonette
-      as an agent under $jason.head.agents.
-
-    *************************************/
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue.js!'
-      },
-      mounted: function() {
-        if (window.$agent) $agent.response(this.message);
-      },
-      methods: {
-        reverseMessage: function () {
-          this.message = this.message.split('').reverse().join('')
-          if (window.$agent) $agent.response(this.message)
-        }
-      }
-    })
-    </script>
-  </body>
+*************************************/
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  mounted: function() {
+    if (window.$agent) $agent.response(this.message);
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+      if (window.$agent) $agent.response(this.message)
+    }
+  }
+})
+</script>
 </html>
