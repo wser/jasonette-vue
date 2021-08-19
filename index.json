@@ -31,10 +31,10 @@
               "text": "{{$jason}}",
               "style": {
                 "size": "40",
-                "top": "0",
+                "top": "150",
                 "height": "100%",
                 "align": "center",
-                "left": "0",
+                "left": "150",
                 "width": "100%"
               },
               "action": {
