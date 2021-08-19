@@ -28,7 +28,7 @@
           "layers": [
             {
               "type": "label",
-              "text": "{{$jason}}",
+              "text": "it's alive",
               "style": {
                 "size": "40",
                 "top": "150",
